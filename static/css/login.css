@@ -1,0 +1,51 @@
+body{
+    background-color: white;
+}
+.login{
+    margin: auto auto;
+    margin-top: 20%;
+    width: 350px;
+    height: 180px;
+    background-color: white;
+    box-shadow: 10px 10px 10px dimgrey;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+}
+
+.use{
+    margin: 30px 50px;
+    color: black;
+}
+.passwd{
+    color: black;
+    margin: 30px 50px;
+    background-color: transparent;
+}
+.btn{
+    margin: 30px 50px;
+    background-color: white;
+}
+#btn{
+    width: 150px;
+    height: 40px;
+    margin-left: 120px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: white;
+
+}
+input{
+    height: 18px;
+}
+#btn:hover{
+    color: red;
+    background-color: gainsboro;
+    font-size: large ;
+    text-shadow: 5px 5px 5px white;
+}
+.message{
+    width: 350px;
+    height: 111px;
+    margin: auto auto;
+    margin-top: 25px;
+}

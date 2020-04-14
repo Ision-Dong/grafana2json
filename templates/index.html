@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block header %}
+    <head>
+        <meta charset="UTF-8">
+        {% block title %}
+            <title>首頁</title>
+        {% endblock %}
+        {% block style %}
+            <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}" type="text/css">
+        {% endblock %}
+
+    </head>
+{% endblock %}
+{% block container %}
+    <body>
+    <div class="container">
+        {#    navbar#}
+        {% block navbar %}
+            <div class="navbar">
+                <div class="logo">
+                    <img src="{{ url_for('static',filename='images/logo.jpg') }}" alt="">
+                </div>
+                <div class="list">
+                    <ul>
+                        <li><a href="{{ url_for('first_blue.index') }}">首页</a></li>
+                    </ul>
+                </div>
+                <div class="btn">
+                    <form action="#" method="post">
+                        <input class="btn_content" type="text" name="search" placeholder="Enter Name">
+                        <input class="btn_button" type="submit" value="Search">
+                    </form>
+                </div>
+            </div>
+        {% endblock %}
+        {#    menu#}
+        {% block menu %}
+            <div class="menu">
+                <ul>
+                    {#            <li id="img"><img src="{{ url_for('static',filename='images/setting2x.png') }}" alt=""></li>#}
+                    <li class="imgs"><img src="{{ url_for('static',filename='images/setting2x.png') }}" alt="">功能</li>
+                    <li class="line">|</li>
+                    <li class="imgs"><img src="{{ url_for('static',filename='images/work2x.png') }}" alt=""><a
+                            href="{{ url_for('first_blue.add') }}">添加成员</a></li>
+                    <li class="line">|</li>
+                    <li class="imgs"><img src="{{ url_for('static',filename='images/crm2x.png') }}" alt=""><a
+                            href="#">删除成员</a>
+                    </li>
+                    <li class="line">|</li>
+                    <li class="imgs"><img src="{{ url_for('static',filename='images/app2x.png') }}" alt=""><a href="#">查询本人信息</a>
+                    </li>
+                    <li class="line">|</li>
+                    <li class="imgs"><img src="{{ url_for('static',filename='images/departments@1x.png') }}" alt=""><a
+                            href="#">查询部门信息</a></li>
+                </ul>
+            </div>
+        {% endblock %}
+        {#    content#}
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        {#    footing#}
+        <div class="footing">
+            {% block footing %}
+            {% endblock %}
+        </div>
+    </div>
+    </body>
+{% endblock %}
+</html>

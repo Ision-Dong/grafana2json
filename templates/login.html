@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}" type="text/css">
+</head>
+<body>
+{#    <h2>login</h2>#}
+<div class="login">
+    <form action="{{ url_for('first_blue.index') }}" method="post">
+        <div id="use_form">
+            <div class="use">
+                <span>用户名：</span><input type="text" name="user">
+            </div>
+            <div class="passwd">
+                <span>密&nbsp;码：</span><input type="password" name="password">
+            </div>
+            <div class="btn">
+                <p><input id="btn"  type="submit" value="登&nbsp;录"></p>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="message">
+</div>
+
+</body>
+</html>

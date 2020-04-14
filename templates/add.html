@@ -1,0 +1,59 @@
+{% extends 'index.html' %}
+{% block title %}
+    <title>添加人员</title>
+{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+{% endblock %}
+{{ super() }}
+{% block content %}
+    <div class="form">
+        <div class="title">
+            <h2>添加成员</h2>
+            <hr>
+        </div>
+        <div class="form_input">
+            <form action="#" method="post">
+                <div>
+                    <input class="input" type="text" name="use" placeholder="用户名">
+                </div>
+                <div>
+                    <input class="input" type="password" name="password" placeholder="密码">
+                </div>
+                <div>
+                    <input class="input" type="text" placeholder="姓名" name="fullname">
+                </div>
+                <div>
+                    <select name="sex" id="sex">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div>
+                    <input class="input" type="text" placeholder="手机号码" name="phone">
+                </div>
+                <div>
+                    <select name="role" id="player">
+                        <option class="employer" value="管理员">管理员</option>
+                        <option class="employer" value="部门负责人">部门负责人</option>
+                        <option class="employer" value="员工">员工</option>
+                    </select>
+                </div>
+                <div>
+                    <select name="department" id="player">
+                        <option class="player" value="财务中心">财务中心</option>
+                        <option class="player" value="服务中心">服务中心</option>
+                        <option class="player" value="产品中心">产品中心</option>
+                        <option class="player" value="营销中心">营销中心</option>
+                    </select>
+                </div>
+                <div>
+                    <input class="input" type="text" placeholder="岗位" name="post">
+                </div>
+                <div class="submit">
+                    <input id="submit" type="submit" value="提 交">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
