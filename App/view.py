@@ -1,3 +1,6 @@
+import json
+import time
+
 from flask import Blueprint, render_template, request,jsonify
 
 from App.models import Employer, User
@@ -50,9 +53,7 @@ def index():
 
 @blue.route('/api/search',methods=['POST','GET'])
 def search():
-    g = GetEventer()
-    g.getDCMcount()
-    evetlist = ['assetTag','eventType','description']
+    evetlist = ['online','offline']
     # for event in g.getDCMEvenList():
     #     evetlist.append(eval(event)['event'])
     return jsonify(evetlist)
@@ -60,25 +61,30 @@ def search():
 
 @blue.route('/api/query',methods=['POST'])
 def query():
-    return jsonify(
-        [
-            {
-                     "target": "assetTag",
-                "datapoints": [
-                                  [818389658, 1586835015000],
-                ]
-            },
-            {
-                "target": "eventType",
-                "datapoints": [
-                    ["DEVICE_COMPONENT_FAULT", 1586835015000],
-                ]
-            },
-            {
-                "target": "description",
-                "datapoints": [
-                    ["'Status: Abnormal; Name: POWER_SUPPLY; Detail: PSU_Redundant:Re", 1586835015000],
-                ]
-            }
-        ]
-    )
+
+    g = GetEventer()
+
+    print(json.loads(request.get_data())['targets'][0]['target'])
+    if json.loads(request.get_data())['targets'][0]['target'] == 'online' :
+        return jsonify(
+            [
+                {
+                    "target": "online",
+                    "datapoints": [
+                            [g.getDCMcount()[0], time.time()*1000],
+                    ]
+                }
+            ]
+        )
+    elif json.loads(request.get_data())['targets'][0]['target'] == 'offline':
+        return jsonify(
+            [
+                {
+                    "target": "offline",
+                    "datapoints": [
+                            [g.getDCMcount()[1], time.time()*1000],
+                    ]
+                }
+            ]
+        )
+
