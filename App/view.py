@@ -63,26 +63,26 @@ def search():
 def query():
 
     g = GetEventer()
-
-    print(json.loads(request.get_data())['targets'][0]['target'])
-    if json.loads(request.get_data())['targets'][0]['target'] == 'online' :
+    target = json.loads(request.get_data())['targets'][0]['target']
+    status = g.getDCMcount()
+    if target == 'online' :
         return jsonify(
             [
                 {
                     "target": "online",
                     "datapoints": [
-                            [g.getDCMcount()[0], time.time()*1000],
+                            [status[0], time.time()*1000],
                     ]
                 }
             ]
         )
-    elif json.loads(request.get_data())['targets'][0]['target'] == 'offline':
+    elif target == 'offline':
         return jsonify(
             [
                 {
                     "target": "offline",
                     "datapoints": [
-                            [g.getDCMcount()[1], time.time()*1000],
+                            [status[1], time.time()*1000],
                     ]
                 }
             ]
